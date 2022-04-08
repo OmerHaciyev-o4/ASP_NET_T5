@@ -1,0 +1,5 @@
+﻿@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+
+* {
+    font-family: 'Cascadia Code';
+}

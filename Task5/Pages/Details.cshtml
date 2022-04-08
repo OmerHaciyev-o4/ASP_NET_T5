@@ -1,0 +1,24 @@
+﻿@page
+@model Task5.Pages.DetailsModel
+@{
+}
+<!DOCKTYPE html>
+<html>
+    <head>
+        <title>Student Board</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="css/site.css"/>
+    </head>
+    <body class="bg-dark text-light d-flex flex-column flex-wrap justify-content-center">
+        <h2 class="text-center">Student: @Model.Student.Surname @Model.Student.Name</h2>
+        <br/>
+        <br/>
+        <div class="bg-dark text-light d-flex flex-column flex-wrap justify-content-center">
+            <h4 class="text-center">ID: @Model.Student.Id</h4>
+            <h4 class="text-center">Name: @Model.Student.Name</h4>
+            <h4 class="text-center">Surname: @Model.Student.Surname</h4>
+            <h4 class="text-center">Age: @Model.Student.Age</h4>
+            <h4 class="text-center">Score: @Model.Student.Score</h4>
+        </div>
+    </body>
+</html>

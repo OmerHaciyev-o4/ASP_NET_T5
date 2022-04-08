@@ -1,0 +1,62 @@
+﻿@page
+@model Task5.Pages.IndexModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Board</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/site.css"/>
+</head>
+<body class="bg-dark">
+    <h1 class="text-center text-light">Student Page</h1>
+    <table class="table">
+        <thead>
+            <tr class="text-light">
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Age</th>
+                <th scope="col">Score</th>
+                <th scope="col">Configuration</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model.Students)
+            {
+                <tr>
+                    <th class="text-light" scope="row">@s.Id</th>
+                    <td class="text-light">@s.Name</td>
+                    <td class="text-light">@s.Surname</td>
+                    <td class="text-light">@s.Age</td>
+                    <td class="text-light">@s.Score</td>
+                    <td>
+                        <a asp-page="Edit" asp-route-id="@s.Id">Update</a> <span class="text-light">|</span>
+                        <a asp-page="Index" asp-page-handler="DeleteStudent" asp-route-id="@s.Id">Delete</a> <span class="text-light">|</span>
+                        <a asp-page="Details" asp-route-id="@s.Id">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr class="border-light" />
+    <form class="text-light d-flex flex-row flex-wrap justify-content-center" method="get">
+        Search : <input class="ml-3 mr-3 bg-transparent border-top-0 border-left-0 border-right-0 border-light text-light" style="outline: none;" asp-for="Search"/>
+        <input class="pl-3 pr-3 text-dark border-0 rounded-pill btn-outline-success" type="submit" value="Submit" />
+    </form>
+    <hr class="border-light" />
+    <form class="text-light d-flex flex-row flex-wrap justify-content-center" method="post">
+        Name: <input class="ml-2 mr-4  bg-transparent border-top-0 border-left-0 border-right-0 border-light text-light" style="outline: none;" type="text" required="required" asp-for="Student.Name" />
+        Surname: <input class="ml-2 mr-4  bg-transparent border-top-0 border-left-0 border-right-0 border-light text-light" style="outline: none;" type="text" required="required" asp-for="Student.Surname" />
+        Age: <input class="ml-2 mr-4  bg-transparent border-top-0 border-left-0 border-right-0 border-light text-light" style="outline: none;" type="number" min="18" max="100" value="18" required="required" asp-for="Student.Age" />
+        Score: <input class="ml-2 mr-4  bg-transparent border-top-0 border-left-0 border-right-0 border-light text-light" style="outline: none;" type="number" min="0" max="100" value="0" required="required" asp-for="Student.Score" />
+        <input class="pl-3 pr-3 text-dark border-0 rounded-pill btn-outline-success" type="submit" value="Submit" />
+    </form>
+</body>
+</html> 
